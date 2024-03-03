@@ -41,6 +41,7 @@ ENABLE_BYP_RAW_DEMODULATORS   ?= 1
 ENABLE_BLMIN_TMP_OFF          ?= 0
 ENABLE_SCAN_RANGES            ?= 1
 ENABLE_DOCK                   ?= 1
+ENABLE_DTRAC                  ?= 1
 
 # ---- DEBUGGING ----
 ENABLE_AM_FIX_SHOW_DATA       ?= 0
