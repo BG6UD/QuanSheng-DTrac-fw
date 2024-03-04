@@ -1,16 +1,7 @@
-# Modified firmware forked from https://github.com/egzumer/uv-k5-firmware-custom
-# Requires Quansheng Dock V0.32.8x
-This firmware is required to use my Quansheng Dock project found here  
-https://github.com/nicsure/QuanshengDock
-
-Download the pre-compiled and packed firmware image here. Use any firmware update tool to burn it to the radio.  
-https://github.com/nicsure/quansheng-dock-fw/releases/tag/0.32.8x
+# Modified firmware forked from https://github.com/egzumer/uv-k5-firmware-custom and https://github.com/nicsure/quansheng-dock-fw
 
 Alternativly [🗲FLASH WITH A BROWSER🗲](https://egzumer.github.io/uvtools/?firmwareURL=https://github.com/nicsure/quansheng-dock-fw/releases/download/0.32.8x/firmware.packed.bin) (Chromium based browsers only).  
 Thanks go to egzumer for providing this tool.
-
-
-
 
 The rest of this readme is the original from the parent egzumer firmware project.
 
@@ -134,6 +125,7 @@ You'll find the options at the top of "Makefile" ('0' = disable, '1' = enable) .
 | ENABLE_BLMIN_TMP_OFF | additional function for configurable buttons that toggles `BLMin` on and off wihout saving it to the EEPROM |
 | ENABLE_SCAN_RANGES | scan range mode for frequency scanning, see wiki for instructions (radio operation -> frequency scanning) |
 | ENABLE_DOCK | Enables the features required for remote operation with Quansheng Dock |
+| ENABLE_DTRAC | Enables the features required for remote operation with DTrac |
 |🧰 **DEBUGGING** ||
 | ENABLE_AM_FIX_SHOW_DATA| displays settings used by  AM-fix when AM transmission is received |
 | ENABLE_AGC_SHOW_DATA | displays AGC settings |
@@ -231,31 +223,5 @@ Many thanks to various people on Telegram for putting up with me during this eff
 
 ## License
 
-Copyright 2023 Dual Tachyon
-https://github.com/DualTachyon
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-
 ## Example changes/updates
 
-<p float="left">
-  <img src="/images/image1.png" width=300 />
-  <img src="/images/image2.png" width=300 />
-  <img src="/images/image3.png" width=300 />
-</p>
-
-Video showing the AM fix working ..
-
-<video src="/images/AM_fix.mp4"></video>
-
-<video src="https://github.com/OneOfEleven/uv-k5-firmware-custom/assets/51590168/2a3a9cdc-97da-4966-bf0d-1ce6ad09779c"></video>
