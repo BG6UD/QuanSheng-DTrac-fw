@@ -1,5 +1,6 @@
-# Modified firmware forked from https://github.com/egzumer/uv-k5-firmware-custom and https://github.com/nicsure/quansheng-dock-fw
+# Modified firmware forked from https://github.com/nicsure/quansheng-dock-fw
 
+quansheng-dock-fw Modified firmware forked from https://github.com/egzumer/uv-k5-firmware-custom 
 Alternativly [🗲FLASH WITH A BROWSER🗲](https://egzumer.github.io/uvtools/?firmwareURL=https://github.com/nicsure/quansheng-dock-fw/releases/download/0.32.8x/firmware.packed.bin) (Chromium based browsers only).  
 Thanks go to egzumer for providing this tool.
 
