@@ -219,6 +219,9 @@ static void processFKeyFunction(const KEY_Code_t Key, const bool beep)
 				gRequestSaveVFO   = true;
 				gVfoConfigureMode = VFO_CONFIGURE_RELOAD;
 #elif defined(ENABLE_SPECTRUM)
+#ifdef ENABLE_DTRAC
+                DTRAC_MODE=0;
+#endif
 				APP_RunSpectrum();
 				gRequestDisplayScreen = DISPLAY_MAIN;
 #endif
@@ -661,6 +664,23 @@ static void MAIN_Key_STAR(bool bKeyPressed, bool bKeyHeld)
 static void MAIN_Key_UP_DOWN(bool bKeyPressed, bool bKeyHeld, int8_t Direction)
 {
 	uint8_t Channel = gEeprom.ScreenChannel[gEeprom.TX_VFO];
+
+	if (gWasFKeyPressed) {
+        gWasFKeyPressed = false;
+
+        if (Direction == -1) {
+            gEeprom.BEEP_CONTROL = !gEeprom.BEEP_CONTROL;
+            gRequestSaveSettings = 1;
+        }
+#ifdef ENABLE_DTRAC
+        if (Direction == 1) {
+			DTRAC_MODE = 1;
+			APP_RunSpectrum();
+			gRequestDisplayScreen = DISPLAY_MAIN;
+        }
+#endif
+        return;
+    }
 
 	if (bKeyHeld || !bKeyPressed)
 	{

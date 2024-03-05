@@ -153,6 +153,10 @@ typedef struct PeakInfo {
 
 void APP_RunSpectrum(void);
 
+#ifdef ENABLE_DTRAC
+extern bool DTRAC_MODE;
+#endif
+
 #endif /* ifndef SPECTRUM_H */
 
 // vim: ft=c

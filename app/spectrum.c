@@ -41,6 +41,10 @@ const uint16_t RSSI_MAX_VALUE = 65535;
 static uint32_t initialFreq;
 static char String[32];
 
+#ifdef ENABLE_DTRAC
+bool DTRAC_MODE = 0;
+#endif
+
 bool isInitialized = false;
 bool isListening = true;
 bool monitorMode = false;
@@ -973,6 +977,12 @@ void OnKeyDownStill(KEY_Code_t key) {
     // TODO: start transmit
     /* BK4819_ToggleGpioOut(BK4819_GPIO6_PIN2_GREEN, false);
     BK4819_ToggleGpioOut(BK4819_GPIO5_PIN1_RED, true); */
+#ifdef ENABLE_DTRAC
+    if (DTRAC_MODE) {
+        //ToggleTX(true);
+        redrawScreen = true;
+    }
+#endif
     break;
   case KEY_MENU:
     if (menuState == ARRAY_SIZE(registerSpecs) - 1) {
@@ -1304,7 +1314,26 @@ void APP_RunSpectrum() {
 
   isInitialized = true;
 
+#ifdef ENABLE_DTRAC
+  //statuslineUpdateTimer = 4097;
+
+ if (DTRAC_MODE) {
+    //settings.listenBw = 0;
+    //settings.modulationType = MODULATION_FM;
+    SetState(STILL);
+    TuneToPeak();
+    //settings.dbMin = -130;
+ }
+#endif
+
   while (isInitialized) {
+#ifdef ENABLE_DTRAC
+	if (DTRAC_MODE) {
+		fMeasure = 43850000;
+		SetF(fMeasure);
+		currentFreq = fMeasure;
+	}
+#endif
     Tick();
   }
 }

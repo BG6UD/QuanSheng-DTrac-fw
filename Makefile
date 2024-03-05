@@ -5,7 +5,7 @@
 
 # ---- STOCK QUANSHENG FERATURES ----
 ENABLE_UART                   ?= 1
-ENABLE_AIRCOPY                ?= 1
+ENABLE_AIRCOPY                ?= 0
 ENABLE_FMRADIO                ?= 1
 ENABLE_NOAA                   ?= 0
 ENABLE_VOICE                  ?= 0
@@ -13,7 +13,7 @@ ENABLE_VOX                    ?= 1
 ENABLE_ALARM                  ?= 0
 ENABLE_TX1750                 ?= 0
 ENABLE_PWRON_PASSWORD         ?= 0
-ENABLE_DTMF_CALLING           ?= 1
+ENABLE_DTMF_CALLING           ?= 0
 ENABLE_FLASHLIGHT             ?= 1
 
 # ---- CUSTOM MODS ----
@@ -35,7 +35,7 @@ ENABLE_FASTER_CHANNEL_SCAN    ?= 1
 ENABLE_RSSI_BAR               ?= 1
 ENABLE_AUDIO_BAR              ?= 1
 ENABLE_COPY_CHAN_TO_VFO       ?= 1
-ENABLE_SPECTRUM               ?= 0
+ENABLE_SPECTRUM               ?= 1
 ENABLE_REDUCE_LOW_MID_TX_POWER?= 0
 ENABLE_BYP_RAW_DEMODULATORS   ?= 1
 ENABLE_BLMIN_TMP_OFF          ?= 0
@@ -253,6 +253,9 @@ CFLAGS += -Wextra
 CFLAGS += -DPRINTF_INCLUDE_CONFIG_H
 CFLAGS += -DAUTHOR_STRING=\"$(AUTHOR_STRING)\" -DVERSION_STRING=\"$(VERSION_STRING)\"
 
+ifeq ($(ENABLE_DTRAC),1)
+	CFLAGS += -DENABLE_DTRAC
+endif
 ifeq ($(ENABLE_DOCK),1)
 	CFLAGS += -DENABLE_DOCK
 endif
