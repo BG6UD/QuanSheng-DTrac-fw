@@ -668,12 +668,12 @@ static void MAIN_Key_UP_DOWN(bool bKeyPressed, bool bKeyHeld, int8_t Direction)
 	if (gWasFKeyPressed) {
         gWasFKeyPressed = false;
 
-        if (Direction == -1) {
+        if (Direction == 1) {
             gEeprom.BEEP_CONTROL = !gEeprom.BEEP_CONTROL;
             gRequestSaveSettings = 1;
         }
 #ifdef ENABLE_DTRAC
-        if (Direction == 1) {
+        if (Direction == -1) {
 			DTRAC_MODE = 1;
 			APP_RunSpectrum();
 			gRequestDisplayScreen = DISPLAY_MAIN;

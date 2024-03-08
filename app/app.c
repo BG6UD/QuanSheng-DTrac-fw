@@ -1134,15 +1134,6 @@ void APP_TimeSlice10ms(void)
 	}
 #endif
 
-#ifdef ENABLE_UART && ENABLE_DTRAC
-	//if (UART_IsCommandAvailable()) {
-	//	__disable_irq();
-	//	UART_HandleCommand();
-	//	__enable_irq();
-	//}
-	BK4819_SetFrequency(123456000);
-#endif
-
 	if (gReducedService)
 		return;
 
